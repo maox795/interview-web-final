@@ -1,0 +1,134 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Lora:ital,wght@0,400;0,500;1,400&display=swap');
+
+
+:root {
+  --bg:         #21180f;   
+  --bg-light:   #33261a;   
+  --bg-edge:    #140e08;   
+  --text:       #ecdcc0;   
+  --text-soft:  #c4a984;   
+  --accent:     #d39a5e;   
+  --line:       rgba(211, 154, 94, 0.35);
+}
+
+
+html {
+  background: var(--bg);
+}
+
+body {
+  background: radial-gradient(ellipse at center,
+   var(--bg-light) 0%, var(--bg) 60%, var(--bg-edge) 100%) fixed;
+  margin: 0;
+  color: var(--text);
+  font-family: 'Lora', Georgia, serif;
+}
+
+/* Film effct/texture */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.09;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+}
+
+a {
+  color: var(--accent);
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--bg);
+}
+
+.home {
+  padding: 270px;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: 0.5fr 1fr 1fr 1fr;
+  gap: 16px;
+}
+
+.gallery img {
+  width: 100%;
+  display: block;
+  /* fade when hover */
+  filter: sepia(0.35) saturate(0.85) contrast(0.95);
+  transition: filter 0.4s ease, transform 0.4s ease;
+}
+
+.gallery a:hover img {
+  filter: none;
+  transform: scale(1.03);
+}
+
+.gallery .text-cell {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  color: var(--text);
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  text-align: center;
+  font-size: 57px;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.caption {
+  margin-top: 24px;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  color: var(--text-soft);
+  font-style: italic;
+  font-size: 22px;
+  text-align: right;
+}
+
+
+.interview {
+  padding: 150px;
+  font-size: 25px;
+  line-height: 1.6;
+}
+
+.interview h1 {
+  margin: 0.4em 0 0.6em;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  color: var(--accent);
+  font-weight: 600;
+  font-size: 64px;
+  letter-spacing: 0.02em;
+  padding-bottom: 0.3em;
+  border-bottom: 1px solid var(--line);
+}
+
+
+.q {
+  font-weight: 500;
+  color: var(--text-soft);
+}
+
+
+.a {
+  font-weight: 400;
+  font-size: 23px;
+  color: var(--text);
+}
+
+
+.back {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-style: italic;
+  font-size: 22px;
+  color: var(--text-soft);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.back:hover {
+  color: var(--accent);
+}
